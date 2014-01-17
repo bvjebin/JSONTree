@@ -1,0 +1,48 @@
+body {
+	background: #FFFDD0;
+}
+header {
+	background: #980224;
+	padding: 25px;
+}
+header h1 {
+	text-align: center;
+	color: #FFFDD0;
+	margin: auto;
+}
+svg {
+    pointer-events: all;
+}
+.node circle {
+	cursor: pointer;
+	fill: #fff;
+	stroke: steelblue;
+	stroke-width: 1.5px;
+}
+.node text {
+  	font-size: 11px;
+}
+
+path.link {
+  	fill: none;
+  	stroke: #ccc;
+  	stroke-width: 1.5px;
+}
+#jsoncontent {
+	background-color: #ccc;
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 200px;
+	padding: 20px;
+}
+#visualize {
+	color: #fff;
+	background: #980224;
+	border: 0px;
+	border-radius: 3px;
+	padding: 5px;
+	margin: 5px;
+}
+svg {
+	cursor: move;
+}

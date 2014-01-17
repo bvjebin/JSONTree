@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>JSONTree</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/JSONTree.css">
+		<script src="js/d3.v3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onLoad = (function() {
+				if (!Array.prototype.forEach) {
+					Array.prototype.forEach = function(fun /*, thisp*/ ) {
+						var len = this.length >>> 0;
+						if (typeof fun != "function") {
+							throw new TypeError();
+						}
+
+						var thisp = arguments[1];
+						for (var i = 0; i < len; i++) {
+							if (i in this) {
+								fun.call(thisp, this[i], i, this);
+							}
+						}
+					};
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>JSONTree</h1>
+		</header>
+		<div>
+			<label for="jsoncontent" style="display:none;">Json</label>
+			<textarea id="jsoncontent"></textarea>
+			<button type="button" id="visualize">Visualize</button>
+			<label>
+				Vertical:
+				<input type="radio" name="vertical_horizontal" value="vertical" checked="true" />
+			</label>
+			<label>
+				Horizontal:
+				<input type="radio" name="vertical_horizontal" value="horizontal" />
+			</label>
+			<div style="float:right; padding-right: 20px"><em>(Zoom and Drag Available)</em></div>
+		</div>
+		<div id="jsontree"></div>
+		<script type="text/javascript" src="js/JSONTree.js"></script>
+		<footer></footer>
+	</body>
+</html>

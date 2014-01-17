@@ -1,4 +1,4 @@
-JSONTree
+d3jsontree
 ==========
 
-Visualize json data using d3 collapsible tree
+Visualize json data using d3 tree
