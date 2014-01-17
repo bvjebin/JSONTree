@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>JSONtree by bvjebin</title>
+    <title>JSONTree by bvjebin</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -15,7 +15,27 @@
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="stylesheets/JSONTree.css">
+	<script src="javascripts/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onLoad = (function() {
+			if (!Array.prototype.forEach) {
+				Array.prototype.forEach = function(fun /*, thisp*/ ) {
+					var len = this.length >>> 0;
+					if (typeof fun != "function") {
+						throw new TypeError();
+					}
 
+					var thisp = arguments[1];
+					for (var i = 0; i < len; i++) {
+						if (i in this) {
+							fun.call(thisp, this[i], i, this);
+						}
+					}
+				};
+			}
+		})();
+</script>
   </head>
   <body>
       <div id="header">
@@ -31,17 +51,30 @@
 
       <section>
         <div id="title">
-          <h1>JSONtree</h1>
-          <p>Visualize json data as Collapsible Tree using d3 js</p>
+          <h1>JSONTree</h1>
+          <p>Visualize JSON data as Collapsible Tree using d3 js</p>
           <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/bvjebin">bvjebin</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
         <p>Paste your JSON into the box and visualize the data horizontally or vertically with drag and zoom features!</p>
       </section>
-
+	<div>
+		<label for="jsoncontent" style="display:none;">Json</label>
+		<textarea id="jsoncontent"></textarea>
+		<button type="button" id="visualize">Visualize</button>
+		<label>
+			Vertical:
+			<input type="radio" name="vertical_horizontal" value="vertical" checked="true" />
+		</label>
+		<label>
+			Horizontal:
+			<input type="radio" name="vertical_horizontal" value="horizontal" />
+		</label>
+		<div style="float:right; padding-right: 20px"><em>(Zoom and Drag Available)</em></div>
+	</div>
     </div>
+	<div id="jsontree" style="padding: 2.5em;"></div>
+	<script type="text/javascript" src="javascripts/JSONTree.js"></script>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -53,6 +86,11 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
+	<hr />
+	<div class="wrapper">
+		<span class="credits left" style="float: left;">Project maintained by <a href="https://github.com/bvjebin">bvjebin</a></span>
+		<span style="width: 100px;">&nbsp;</span>
+		<span class="credits right" style="float: right;">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+	</div>
   </body>
 </html>
